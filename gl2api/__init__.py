@@ -403,9 +403,7 @@ class GL2Message(DictMessage):
     NAME="GL2Message"
 
 
-class RelativeSearchSchema(Schema):
-
-    _path="search/universal/relative"
+class SearchSchema(Schema):
     _methods={
         "list": { "method": "GET" }
     }
@@ -435,6 +433,14 @@ class RelativeSearchSchema(Schema):
         return res
 
 
+class RelativeSearchSchema(SearchSchema):
+    _path="search/universal/relative"
+
+
+class AbsoluteSearchSchema(SearchSchema):
+    _path="search/universal/absolute"
+
+
 _api=None
 
 
@@ -459,6 +465,7 @@ def get_api(url=None, *args, **kwargs):
         _api.add_resource(name='roles', schema=RoleSchema)
         _api.add_resource(name='extractors', schema=ExtractorSchema)
         _api.add_resource(name='relative_search', schema=RelativeSearchSchema)
+        _api.add_resource(name='absolute_search', schema=AbsoluteSearchSchema)
         _api.get_input_types=_get_input_types.__get__(_api, API)
     return _api
 

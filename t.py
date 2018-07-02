@@ -1,4 +1,4 @@
-from gl2api import get_api, RelativeSearchSchema
+from gl2api import get_api, AbsoluteSearchSchema
 
 if __name__ == '__main__':
     from requests.auth import HTTPBasicAuth
@@ -11,10 +11,11 @@ if __name__ == '__main__':
     INDEX_SET_ID="5abe920408813b00011123a1"
     STREAM_ID="5b070a87e64ada000110ac23"
 
-    schema=RelativeSearchSchema()
-    obj=api.relative_search.list(query_params={
+    schema=AbsoluteSearchSchema()
+    obj=api.absolute_search.list(query_params={
         # 'filter': "stream={}".format(STREAM_ID), 
-        'range': 3600,
+        'from': '2018-07-01T04:00:00.000Z',
+        'to': '2018-07-02T04:00:00.000Z',
         'query': "level:<=3"})
     print("Result: {}".format(schema.dump(obj).data))
     for r in obj.messages:
