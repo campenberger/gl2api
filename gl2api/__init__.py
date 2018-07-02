@@ -284,7 +284,7 @@ class StreamSchema(Schema):
     created_at=fields.DateTime()
     disabled=fields.Boolean()
     rules=fields.List(fields.Dict(), missing=[], allow_none=True)  # FIXME: Rules are almost certainly structured
-    alert_conditions=fields.List(fields.String(), missing=[], allow_none=True)  # FIXME:
+    alert_conditions=fields.List(fields.Dict(), missing=[], allow_none=True)  # FIXME:
     alert_receivers=fields.Nested(AlertReceiverSchema)
     title=fields.String()
     content_pack=fields.String(allow_none=True)
