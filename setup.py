@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='gl2api',
-      version='0.3',
+      version='0.4',
       description='A basic graylog 2 client API that is incomplete, but avoids the swagger codegen template code',
       url='https://github.com/campenberger/gl2api',
       author='Chris Ampenberger',
