@@ -4,12 +4,15 @@ if __name__ == '__main__':
     from requests.auth import HTTPBasicAuth
     auth=HTTPBasicAuth("admin", "Geheim")
 
-    api=get_api("http://localhost:9000/api", auth=auth)
+    api=get_api("http://microserver-core:9000/api", auth=auth)
     obj_api=api.stream_rules
     
     INPUT_ID="5abe921c08813b00011123f3"
     INDEX_SET_ID="5abe920408813b00011123a1"
     STREAM_ID="5b070a87e64ada000110ac23"
+
+    from gl2api.search import get_stream_by_name
+    get_stream_by_name('Virus Scans')
 
     schema=AbsoluteSearchSchema()
     obj=api.absolute_search.list(query_params={

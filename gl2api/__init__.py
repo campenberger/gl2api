@@ -258,7 +258,7 @@ class LDAPConfigSchema(Schema):
 class Stream(DAO):
     
     def __repr__(self):
-        return "Stream(id={}, title={})".format(s.id, s.title)
+        return "Stream(id={}, title={})".format(self.id, self.title)
 
 
 class AlertReceiverSchema(Schema):
