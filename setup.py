@@ -9,4 +9,5 @@ setup(name='gl2api',
       license='MIT',
       packages=['gl2api'],
       zip_safe=False,
+      install_requires=['requests>=2.18', 'marshmallow>=2.15'],
       setup_requires=['requests>=2.18', 'marshmallow>=2.15'])
